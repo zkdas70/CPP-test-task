@@ -12,51 +12,26 @@
 
 
 class Place {
-    private:
-        std::string _name;
-        std::vector<Comment> _comments;
-        int _commentsCount;
+private:
+    std::string _name;
+    std::vector<Comment> _comments;
+    int _commentsCount;
 
-    public:
-        Place(std::string name, std::vector<Comment> comments, int commentsCount) {
-            _name = name;
-            _comments = comments;
-            SetCommentsCount(commentsCount);
-        };
+public:
+    Place(std::string name, std::vector<Comment> comments, int commentsCount);
 
-        void SetName(std::string name) {
-            _name = name;
-        }
+    void SetName(std::string name);
 
-        std::string GetName() {
-            return _name;
-        }
+    std::string GetName();
 
-        void SetComments(std::vector<Comment> comments) {
-            _comments = comments;
-        }
+    void SetComments(std::vector<Comment> comments);
 
-        std::vector<Comment> GetComments() {
-            return _comments;
-        }
+    std::vector<Comment> GetComments();
 
-        void SetCommentsCount(int commentsCount) {
-            if (commentsCount < 0) {
-                throw std::invalid_argument("commentsCount должен быть >= 0");
-            }
-            _commentsCount = commentsCount;
-        }
+    void SetCommentsCount(int commentsCount);
 
-        int GetCommentsCount() {
-            return _commentsCount;
-        }
+    int GetCommentsCount();
 
-        double GetRate() {
-            double rate_sum = 0;
-            for (int i = 0; i < _commentsCount; i++) {
-                rate_sum += _comments[i].GetRate();
-            }
-            return rate_sum / _commentsCount;
-        }
-    };
+    double GetRate();
+};
 #endif
