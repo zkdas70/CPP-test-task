@@ -33,10 +33,10 @@ void building_printer(Building building) {
 int main() {
     const int places_count = 5;
     const int comments_count = 3;
-    std::vector<Place> places;
+    std::vector<Place> places; // в векторе хранятся сами объекты, а не указатели на них - удалять не надо
 
     for (int i = 0; i < places_count; i++) {
-        std::vector<Comment> comments;
+        std::vector<Comment> comments; // в векторе хранятся сами объекты, а не указатели на них - удалять не надо
 
         std::string placename;
         std::cout << "Enter place name:\n";
