@@ -28,7 +28,14 @@ int main() {
         float distance = rand() % 1000;
         std::cout << "Distance = " << distance << " => Calculate time  = " << vehicle->CalculateTime(distance) <<
                 std::endl;
+
+        delete vehicle; // удаляем vehicle
     }
+
+    // закоментил так как удаляю объект выше (меньше циклов выше производительность)
+    // for (Vehicle* vehicle : vehicles) { // удаление объектов из вектора
+    //     delete vehicle;
+    // }
 
 
     return 0;
