@@ -5,38 +5,42 @@
 #include "vehicle/Teleport.h"
 #include "vehicle/Vehicle.h"
 
+namespace {
+using std::vector;
+
+constexpr int kNumVehicles = 5;
+
+vector<vehicle::Vehicle *> VehiclesFactori() {
+  auto vehicles = vector<vehicle::Vehicle *>();
+
+  for (int i = 0; i < kNumVehicles; i++) {
+    if (i % 2 == 0) {
+      vehicles.push_back(new teleport::Teleport());
+      std::cout << "DEBUG - Created Teleport (with index " << i << ")"
+                << std::endl;
+    } else {
+      const float speed = rand() / 100;
+      vehicles.push_back(new car::Car(speed));
+      std::cout << "DEBUG - Created Car (with index " << i
+                << ") speed = " << speed << std::endl;
+    }
+  }
+
+  return vehicles;
+}
+}  // namespace
+
 int main() {
-    srand(time(nullptr)); // рандом разный при каждом запуске
+  srand(time(nullptr));  // рандом разный при каждом запуске
 
-    std::vector<Vehicle *> vehicles;
+  for (vehicle::Vehicle *vehicle : VehiclesFactori()) {
+    const float distance = rand() % 1000;
 
-    const int NUM_VEHICLES = 5;
+    std::printf("Distance = %f => Calculate time  = %f \n", distance,
+                vehicle->CalculateTime(distance));
 
-    for (int i = 0; i < NUM_VEHICLES; i++) {
-        if (i % 2 == 0) {
-            std::cout << "Teleport (with index " << i << ")" << std::endl;
-            vehicles.push_back(new Teleport());
-        } else {
-            float speed = rand() % 100;
-            std::cout << "Car (with index" << i << ") speed = " << speed << std::endl;
-            vehicles.push_back(new Car(speed));
-        }
-    }
-    std::cout << std::endl;
+    delete vehicle;  // удаляем vehicle
+  }
 
-    for (Vehicle *vehicle: vehicles) {
-        float distance = rand() % 1000;
-        std::cout << "Distance = " << distance << " => Calculate time  = " << vehicle->CalculateTime(distance) <<
-                std::endl;
-
-        delete vehicle; // удаляем vehicle
-    }
-
-    // закоментил так как удаляю объект выше (меньше циклов выше производительность)
-    // for (Vehicle* vehicle : vehicles) { // удаление объектов из вектора
-    //     delete vehicle;
-    // }
-
-
-    return 0;
+  return 0;
 }

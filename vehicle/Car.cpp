@@ -3,18 +3,10 @@
 //
 
 #include "Car.h"
+namespace car {
+Car::Car(double speed) : speed_(speed) {}
 
-Car::Car(double speed) {
-    _speed = speed;
-}
+void Car::set_speed(double speed) { speed_ = speed; }
 
-void Car::setSpeed(double speed) {
-    _speed = speed;
-}
-
-double Car::getSpeed() {
-    return _speed;
-}
-double Car::CalculateTime(double Distance){
-    return Distance / _speed;
-}
+double Car::get_speed() { return speed_; }
+}  // namespace car

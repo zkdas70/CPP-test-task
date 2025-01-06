@@ -6,13 +6,12 @@
 #define TELEPORT_H
 #include "Vehicle.h"
 
+namespace teleport {
+class Teleport : public vehicle::Vehicle {
+ public:
+  Teleport() = default;
 
-class Teleport : public Vehicle {
-public:
-    Teleport() = default;
-
-    double CalculateTime(double Distance) override;
+  double CalculateTime(double Distance) override { return 0.1; };
 };
-
-
-#endif //TELEPORT_H
+}  // namespace Teleport
+#endif  // TELEPORT_H

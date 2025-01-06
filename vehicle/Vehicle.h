@@ -5,13 +5,15 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
-
+namespace vehicle {
 class Vehicle {
-public:
-    virtual ~Vehicle() = default; // default сгенерировать деструктор по умолчанию
+ public:
+  virtual ~Vehicle() =
+      default;  // default сгенерировать деструктор по умолчанию
 
-    virtual double CalculateTime(double Distance) = 0; // Абстрактный метод 0 нужен для компиляции
+  inline virtual double CalculateTime(
+      double Distance) = 0;  // Абстрактный метод 0 нужен для компиляции
 };
+}  // namespace vehicle
 
-
-#endif //VEHICLE_H
+#endif  // VEHICLE_H
