@@ -62,8 +62,8 @@ vector<VehicleInterface *> VehiclesFactori() {
  *
  * @param vehicles Вектор из реализаций VehicleInterface
  */
-void printVehiclesAndDelete(const vector<VehicleInterface *> &vehicles) {
-  for (VehicleInterface *vehicle : VehiclesFactori()) {
+void PrintVehiclesAndDelete(const vector<VehicleInterface *> &vehicles) {
+  for (VehicleInterface *vehicle : vehicles) {
     const float distance = rand() % 1000;
 
     // для вывода данных рекомендовано использовать функции из рода "printИмя"
@@ -85,7 +85,7 @@ int main() {
   srand(time(nullptr));  // рандом разный при каждом запуске
 
   const auto vehicles = VehiclesFactori();
-  printVehiclesAndDelete(vehicles);
+  PrintVehiclesAndDelete(vehicles);
 
   return 0;
 }
