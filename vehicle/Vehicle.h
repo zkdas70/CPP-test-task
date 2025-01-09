@@ -8,7 +8,7 @@ namespace vehicles::vehicle {
 /**
  * @brief Базовый Интерфейс транспортного средства
  */
-class VehicleInterface {
+class VehicleInterface { // стандарт рекомендует добавлять приписку Interface для виртуальных классов такого типа
  public:
   virtual ~VehicleInterface() =
       default;  // default сгенерировать деструктор по умолчанию

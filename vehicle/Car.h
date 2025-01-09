@@ -7,6 +7,9 @@
 #include "Vehicle.h"
 
 namespace vehicles::car {
+/**
+ * @brief Машина - Транспортное средство приметающееся по земле
+ */
 class Car final : public vehicle::VehicleInterface {
  public:
   explicit Car(double speed);  // explicit запрет не явных преобразований

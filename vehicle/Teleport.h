@@ -7,6 +7,9 @@
 #include "Vehicle.h"
 
 namespace vehicles::teleport {
+/**
+ * @brief Телепорт - Транспортное средство, что перемещает все почти мгновенно
+ */
 class Teleport final : public vehicle::VehicleInterface {
  public:
   Teleport() = default;
