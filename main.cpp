@@ -19,10 +19,10 @@ namespace {
 
     using vehicles::car::Car;
     using vehicles::teleport::Teleport;
-    using vehicles::vehicle::VehicleInterface;
+    using vehicles::vehicle::Vehicle;
 
     // количество Vehicles что будет созданно
-    constexpr int kNumVehicles = 5;
+    constexpr int NUM_VEHICLES = 5;
 
     /**
      * @brief Создает вектор из транспортных средств.
@@ -32,10 +32,10 @@ namespace {
      *
      * @return Вектор из представлений транспортных средств
      */
-    vector<VehicleInterface*> VehiclesFactori() {
-        auto vehicles = vector<VehicleInterface*>();
+    vector<Vehicle*> vehiclesFactori() {
+        auto vehicles = vector<Vehicle*>();
 
-        for (int i = 0; i < kNumVehicles; i++) {
+        for (int i = 0; i < NUM_VEHICLES; i++) {
             if (i % 2 == 0) {
                 vehicles.push_back(new Teleport());
 
@@ -62,13 +62,13 @@ namespace {
      *
      * @param vehicles Вектор из реализаций VehicleInterface
      */
-    void printVehiclesAndDelete(const vector<VehicleInterface*>& vehicles) {
-        for (VehicleInterface* vehicle : VehiclesFactori()) {
+    void printVehiclesAndDelete(const vector<Vehicle*>& vehicles) {
+        for (Vehicle* vehicle : vehicles) {
             const float distance = rand() % 1000;
 
             // для вывода данных рекомендовано использовать потоки
             std::cout << "Distance = " << distance
-                      << " Calculate time  = " << vehicle->CalculateTime(distance) << "\n";
+                      << " Calculate time  = " << vehicle->calculateTime(distance) << "\n";
 
             delete vehicle; // удаляем vehicle
         }
@@ -83,7 +83,7 @@ namespace {
 int main() {
     srand(time(nullptr)); // рандом разный при каждом запуске
 
-    const auto vehicles = VehiclesFactori();
+    const auto vehicles = vehiclesFactori();
     printVehiclesAndDelete(vehicles);
 
     return 0;

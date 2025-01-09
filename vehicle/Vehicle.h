@@ -8,10 +8,9 @@ namespace vehicles::vehicle {
     /**
      * @brief Базовый Интерфейс транспортного средства
      */
-    class VehicleInterface { // стандарт рекомендует добавлять приписку
-                             // Interface для виртуальных классов такого типа
+    class Vehicle {
       public:
-        virtual ~VehicleInterface() = default; // default сгенерировать деструктор по умолчанию
+        virtual ~Vehicle() = default; // default сгенерировать деструктор по умолчанию
 
         /**
          * @brief Находит расчетное время пути транспортного средства
@@ -21,7 +20,7 @@ namespace vehicles::vehicle {
          * @param distance Дистанция пути транспортного средства
          * @return Расчетное время пути
          */
-        inline virtual double CalculateTime(double distance) = 0;
+        inline virtual double calculateTime(double distance) = 0;
     };
 } // namespace vehicles::vehicle
 
