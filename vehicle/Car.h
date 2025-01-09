@@ -6,19 +6,21 @@
 #define CAR_H
 #include "Vehicle.h"
 
-namespace car {
-class Car : public vehicle::Vehicle {
- private:
-  double speed_;
-
+namespace vehicles::car {
+class Car final : public vehicle::VehicleInterface {
  public:
   explicit Car(double speed);  // explicit запрет не явных преобразований
 
-  void set_speed(double speed);
+  void set_speed(const double speed) { this->speed_ = speed; };
 
-  double get_speed();
+  [[nodiscard]] inline double get_speed() const { return speed_; };
 
-  double CalculateTime(double Distance) override { return Distance / speed_; };
+  inline double CalculateTime(const double distance) override {
+    return distance / speed_;
+  };
+
+ private:
+  double speed_;
 };
-}  // namespace car
+}  // namespace vehicles::car
 #endif  // CAR_H
