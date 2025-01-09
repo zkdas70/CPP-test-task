@@ -5,5 +5,5 @@
 #include "Car.h"
 
 namespace vehicles::car {
-Car::Car(double speed) : speed_(speed) {}
-}  // namespace vehicles::car
+    Car::Car(double speed) : speed_(speed) {}
+} // namespace vehicles::car

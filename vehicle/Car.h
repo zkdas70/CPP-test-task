@@ -7,23 +7,21 @@
 #include "Vehicle.h"
 
 namespace vehicles::car {
-/**
- * @brief Машина - Транспортное средство приметающееся по земле
- */
-class Car final : public vehicle::VehicleInterface {
- public:
-  explicit Car(double speed);  // explicit запрет не явных преобразований
+    /**
+     * @brief Машина - Транспортное средство приметающееся по земле
+     */
+    class Car final : public vehicle::VehicleInterface {
+      public:
+        explicit Car(double speed); // explicit запрет не явных преобразований
 
-  void set_speed(const double speed) { this->speed_ = speed; };
+        void set_speed(const double speed) { this->speed_ = speed; };
 
-  [[nodiscard]] inline double get_speed() const { return speed_; };
+        [[nodiscard]] inline double get_speed() const { return speed_; };
 
-  inline double CalculateTime(const double distance) override {
-    return distance / speed_;
-  };
+        inline double CalculateTime(const double distance) override { return distance / speed_; };
 
- private:
-  double speed_;
-};
-}  // namespace vehicles::car
-#endif  // CAR_H
+      private:
+        double speed_;
+    };
+} // namespace vehicles::car
+#endif // CAR_H
